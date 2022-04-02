@@ -27,7 +27,7 @@ const Form1=()=> {
     }, [post]);
 
     const clear=()=>{
-        setpostData({title:'',content:'',tags:'',github:'',website:'',selectedFile:''});
+        setpostData({title:'',content:'',tags:'',district:'',location:'',selectedFile:''});
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -37,7 +37,7 @@ const Form1=()=> {
     }
 
     const [postData,setpostData]=useState({
-        title:'',content:'',tags:'',github:'',website:'',selectedFile:''
+        title:'',content:'',tags:'',district:'',location:'',selectedFile:''
     })
     if(!user?.result?.name || post?.creator!==user?.result?._id){
         return(
@@ -66,19 +66,19 @@ const Form1=()=> {
                      label="Content" fullWidth value={postData.content} 
                      onChange={(e)=>setpostData({...postData,content:e.target.value})}/>
                      <TextField
-                     name="github" 
+                     name="district" 
                      variant="outlined" 
-                     label="Github Link" fullWidth value={postData.github} 
-                     onChange={(e)=>setpostData({...postData,github:e.target.value})}/>
+                     label="district Link" fullWidth value={postData.district} 
+                     onChange={(e)=>setpostData({...postData,district:e.target.value})}/>
                      <TextField
-                     name="website" 
+                     name="location" 
                      variant="outlined" 
-                     label="Hosted Site Link" fullWidth value={postData.website} 
-                     onChange={(e)=>setpostData({...postData,website:e.target.value})}/>
+                     label="Hosted Site Link" fullWidth value={postData.location} 
+                     onChange={(e)=>setpostData({...postData,location:e.target.value})}/>
                      <TextField
                      name="tags" 
                      variant="outlined" 
-                     label="Add Tags (give spaces between different tags)" fullWidth value={postData.tags} 
+                     label="chatroom id" fullWidth value={postData.tags} 
                      onChange={(e)=>setpostData({...postData,tags:e.target.value.split(',')})}/>
                      <div className={classes.fileInput}>
                     <FileBase

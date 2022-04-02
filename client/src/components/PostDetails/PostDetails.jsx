@@ -41,32 +41,15 @@ function PostDetails() {
                     <Typography variant="h5" component="h2">{post.title}</Typography>
                     <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
                     <Typography gutterBottom variant="body1" component="p">{post.content}</Typography>
-                    <Typography variant="h6">View Project on <a target="_blank" href={post.github}>Github</a></Typography>
-                    <Typography variant="h6">View on <a target="_blank" href={post.website}>Website</a></Typography>
+                    <Typography variant="h6">District : {post.district}</Typography>
+                    <Typography variant="h6">Location : {post.location}</Typography>
                     <Typography variant="h6">Posted by: {post.name}</Typography>
                     <Typography variant="body1">{moment(post.postedOn).fromNow()}</Typography>
                     <Divider style={{ margin: '20px 0' }} />
                     <CommentSection post={post}/> 
                     <Divider style={{ margin: '20px 0' }} />
                 </div>
-            </div>
-            {/* {!!recommendedPosts.length && (
-                <div className={classes.section}>
-                    <Typography gutterBottom variant="h5">You might also like:</Typography>
-                    <Divider />
-                    <div className={classes.recommendedPosts}>
-                        {recommendedPosts.map(({ title, name, message, likes, selectedFile, _id }) => (
-                            <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
-                                <Typography gutterBottom variant="h6">{title}</Typography>
-                                <Typography gutterBottom variant="subtitle2">{name}</Typography>
-                                <Typography gutterBottom variant="subtitle2">{message}</Typography>
-                                <Typography gutterBottom variant="subtitle1">Likes: {likes.length}</Typography>
-                                <img src={selectedFile} width="200px" />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )} */}
+            </div> 
         </Paper>
     )
 }

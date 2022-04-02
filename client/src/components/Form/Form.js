@@ -25,7 +25,7 @@ const Form = () => {
 
     const clear = () => {
         //setCurrentId(0);
-        setpostData({ title: '', content: '', tags: '', github: '', website: '', selectedFile: '' });
+        setpostData({ title: '', content: '', tags: '', district: '', location: '', selectedFile: '' });
     }
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,7 +40,7 @@ const Form = () => {
     }
 
     const [postData, setpostData] = useState({
-        title: '', content: '', tags: '', github: '', website: '', selectedFile: ''
+        title: '', content: '', tags: '', district: '', location: '', selectedFile: ''
     })
     if (!user?.result?.name) {
         return (
@@ -69,20 +69,20 @@ const Form = () => {
                                 label="Content" fullWidth value={postData.content}
                                 onChange={(e) => setpostData({ ...postData, content: e.target.value })} required/>
                             <TextField
-                                name="github"
+                                name="district"
                                 variant="outlined"
-                                label="Github Link" fullWidth value={postData.github}
-                                onChange={(e) => setpostData({ ...postData, github: e.target.value })} required/>
+                                label="district" fullWidth value={postData.district}
+                                onChange={(e) => setpostData({ ...postData, district: e.target.value })} required/>
                             <TextField
-                                name="website"
+                                name="location"
                                 variant="outlined"
-                                label="Hosted Site Link" fullWidth value={postData.website}
-                                onChange={(e) => setpostData({ ...postData, website: e.target.value })} />
+                                label="location" fullWidth value={postData.location}
+                                onChange={(e) => setpostData({ ...postData, location: e.target.value })} />
                             <TextField
                                 name="tags"
                                 variant="outlined"
-                                label="Add Tags (give spaces between different tags)" fullWidth value={postData.tags}
-                                onChange={(e) => setpostData({ ...postData, tags: e.target.value.split(',') })} required/>
+                                label="chatroom id" fullWidth value={postData.tags}
+                                onChange={(e) => setpostData({ ...postData, tags: e.target.value.split(',') })}/>
                             <div className={classes.fileInput}>
                                 <FileBase
                                     type="file"

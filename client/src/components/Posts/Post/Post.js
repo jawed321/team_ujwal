@@ -25,6 +25,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 function Post({ post}) {
+    console.log(post);
     const [open1, setOpen1] = useState(false);
     const [target,setTaget]=useState('');
     const handleClose = () => {
@@ -98,10 +99,8 @@ function Post({ post}) {
                 <Typography gutterBottom variant="body1" component="p">{post.content.length>100?(`${post.content.substring(0,95)}...`):(post.content)}</Typography>
                     {/* <Typography variant="h6" gutterBottom>{post.content.length>40?(`${post.content.substring(0,37)}...`):(post.content)}</Typography> */}
                     
-                    <div><i class="fa-solid fa-location-dot"></i>&nbsp; Location</div>
-                    <Typography gutterBottom variant="body1" component="p">Supported By : <a target="_blank" href={post?.github}><GitHubIcon/></a>&nbsp;
-                    <a target="_blank" href={post?.website}><LanguageIcon/></a>
-                    </Typography>
+                    <div><i class="fa-solid fa-location-dot"></i>&nbsp; Location : {post.district} , {post.location}</div>
+                    <Typography gutterBottom variant="body1" component="p">Supported By : {likes?.length}</Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
                 <Button className={classes.viewbutton} size="small" variant="contained" onClick={openPost}>
