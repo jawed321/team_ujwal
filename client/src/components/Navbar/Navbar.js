@@ -204,7 +204,7 @@ const Navbar = props => {
       pageURL: "/"
     },
     {
-      menuTitle: "myposts",
+      menuTitle: "chat room",
       pageURL: "/posts/myposts"
     },
   ];
@@ -386,7 +386,7 @@ const Navbar = props => {
                 component={NavLink}
                 to="/posts/myposts"
               >
-                myposts
+                chat room
               </Button>
             </div>
             {user?.result ? (

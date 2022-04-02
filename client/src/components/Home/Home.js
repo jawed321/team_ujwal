@@ -72,7 +72,7 @@ function Home() {
                         ) : (
                         <div className={classes.prepost}>
                         <Typography variant="h5" style={{margin:'10px 0 10px 0'}}>Issues</Typography>
-                        {user?.result?.name ?(<Button onClick={postreffunc} variant="contained" color="primary">Post something?</Button>):
+                        {user?.result?.name ?(<Button onClick={postreffunc} variant="contained" color="primary">Raise A Issue?</Button>):
                         (<Button variant="contained" disabled>Signin to post</Button>)}
                         </div>
                         )}
@@ -99,15 +99,15 @@ function Home() {
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <AppBar className={classes.appBarSearch} position="static" color="inherit">
-                            <TextField onKeyPress={handleKeyPress} name="search" variant="outlined" label="Search Projects" fullWidth value={search}
+                            <TextField onKeyPress={handleKeyPress} name="search" variant="standard" label="Search Projects" fullWidth value={search}
                                 onChange={(e) => setSearch(e.target.value)} />
                             <ChipInput
                                 style={{ margin: '10px 0' }}
                                 value={tags}
                                 onAdd={(chip) => handleAdd(chip)}
                                 onDelete={(chip) => handleDelete(chip)}
-                                label="Search Tags"
-                                variant="outlined"
+                                label="Search by Tags"
+                                variant="standard"
                             />
                             <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
                         </AppBar>

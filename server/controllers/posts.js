@@ -77,31 +77,8 @@ export const likePost = async (req, res) => {
     if(!req.userId) return res.json({message:'Unauthenticated'});
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No Post with that id');
     const post = await postContent.findById(id);
-    const index=post.likes.findIndex((id)=>id===String(req.userId))
-
-    if(index===-1){
-        post.likes.push(req.userId);
-    }else{
-        post.likes=post.likes.filter((id)=>id!==String(req.userId));
-    }
-
+    post.likes.push(req.userId);
     const updatedPost = await postContent.findByIdAndUpdate(id, post, { new: true });
     res.json(updatedPost);
 }
 
-export const commentPost=async (req,res)=>{
-    const {id}=req.params;
-    const {value}=req.body;
-    const post=await postContent.findById(id);
-    post.comments.push(value)
-    const updatedPost=await postContent.findByIdAndUpdate(id, post, {new:true});
-    res.json(updatedPost);
-}
-export const deleteCommentPost=async (req,res)=>{
-    const {id}=req.params;
-    const {value}=req.body;
-    const post=await postContent.findById(id);
-    post.comments=post.comments.filter((v)=>v!==value)
-    const updatedPost=await postContent.findByIdAndUpdate(id, post, {new:true});
-    res.json(updatedPost);
-}
