@@ -383,10 +383,10 @@ const Navbar = props => {
               <Button
                 className={classes.headerButtons}
                 variant="contained"
-                component={NavLink}
-                to="/posts/myposts"
-              >
-                myposts
+               > 
+                <a style={{textDecoration:"none",color:"rgba(0,0,0,0.87)"}} href="https://sanchar-chat.herokuapp.com/" target="_blank">chatroom</a>
+              
+                chatroom
               </Button>
             </div>
             {user?.result ? (
