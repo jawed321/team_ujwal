@@ -5,8 +5,21 @@
 }
 
 .lgin-pic img{
-    width: 100%;
+    /* width: 100%; */
 }
 .lgin-content{
     /* width: 40%; */
+}
+.sign{
+    position: relative;
+    right: -10%;
+}
+.lg{
+    margin-top: 20px;
+}
+.jj{
+    position: relative;
+    left: -50%;
+    height: 600px;
+    width: 320px;
 }

@@ -107,14 +107,14 @@ function Auth() {
 
     
 
-        <Container className="login" componenet="main" max-width='xs'>
+        <Container className="login lg" componenet="main" max-width='xs'>
             
             {/* <Paper className={classes.paper} elevation={3}> */}
             {/* <div className="lgin-content"> */}
             <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
+                <Typography className="sign" variant="h4">{isSignup ? 'Create Your Account !!!' : 'Sign In to Account !!!'}</Typography>
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <Grid container spacing={3}>
                         {isSignup && (
@@ -164,7 +164,7 @@ function Auth() {
             {/* </Paper> */}
         </Container>
         <div className="lgin-pic">
-                <img src={Login} alt=""/>
+                <img className="jj" src={Login} alt=""/>
                 </div>
         </div>
     )
