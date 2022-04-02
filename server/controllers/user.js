@@ -1,8 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/user.js'
-import mongoose from "mongoose";
-import express from "express";
 import postContent from "../models/postContent.js";
 
 export const signin=async (req,res)=>{

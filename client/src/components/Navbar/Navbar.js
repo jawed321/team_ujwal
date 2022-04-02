@@ -204,7 +204,7 @@ const Navbar = props => {
       pageURL: "/"
     },
     {
-      menuTitle: "myposts",
+      menuTitle: "chat room",
       pageURL: "/posts/myposts"
     },
   ];

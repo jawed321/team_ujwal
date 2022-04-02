@@ -10,7 +10,9 @@ import { AUTH } from '../../constants/actionTypes';
 import { useHistory } from 'react-router-dom';
 import { signin, signup } from '../../actions/auth'
 import FileBase from 'react-file-base64';
-//import './auth.css';
+import Rocket from '../assets/rocket.png';
+import Login from '../assets/login.png';
+import './auth2.css';
 
 function Auth() {
     const dispatch = useDispatch();
@@ -101,12 +103,18 @@ function Auth() {
     //     </Button>
     //     </form>
     //   </div>
-        <Container componenet="main" max-width='xs'>
-            <Paper className={classes.paper} elevation={3}>
-                <Avatar className={classes.avatar}>
+    <div className="login">
+
+    
+
+        <Container className="login lg" componenet="main" max-width='xs'>
+            
+            {/* <Paper className={classes.paper} elevation={3}> */}
+            {/* <div className="lgin-content"> */}
+            <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
+                <Typography className="sign" variant="h4">{isSignup ? 'Create Your Account !!!' : 'Sign In to Account !!!'}</Typography>
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <Grid container spacing={3}>
                         {isSignup && (
@@ -147,8 +155,18 @@ function Auth() {
                         </Grid>
                     </Grid>
                 </form>
-            </Paper>
+            {/* </div> */}
+            
+               
+                
+               
+                
+            {/* </Paper> */}
         </Container>
+        <div className="lgin-pic">
+                <img className="jj" src={Login} alt=""/>
+                </div>
+        </div>
     )
 }
 

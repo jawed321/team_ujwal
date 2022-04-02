@@ -40,6 +40,7 @@ button:hover{
     background: transparent;
     color: rgb(206, 22, 52);
 }
+
 @media all and (max-width:1050px){
     input{
         width: 45vw;

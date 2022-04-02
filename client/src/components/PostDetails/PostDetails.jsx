@@ -45,9 +45,9 @@ function PostDetails() {
                     <Typography variant="h6">Location : {post.location}</Typography>
                     <Typography variant="h6">Posted by: {post.name}</Typography>
                     <Typography variant="body1">{moment(post.postedOn).fromNow()}</Typography>
-                    <Divider style={{ margin: '20px 0' }} />
+                    {/* <Divider style={{ margin: '20px 0' }} />
                     <CommentSection post={post}/> 
-                    <Divider style={{ margin: '20px 0' }} />
+                    <Divider style={{ margin: '20px 0' }} /> */}
                 </div>
             </div> 
         </Paper>

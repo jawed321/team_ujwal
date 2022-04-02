@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { relativeTimeRounding } from 'moment';
 
 export default makeStyles((theme) => ({
   paper: {
@@ -15,10 +16,15 @@ export default makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
+    
     backgroundColor: theme.palette.secondary.main,
+    position: 'relative',
+    right: '-20%',
+    width: '80px',
+    height: '80px',
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '50%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
