@@ -81,15 +81,16 @@ function Post({ post}) {
                     </div>
                 )}
                 <div className={classes.details}>
-                    <Typography variant="body2" color="textSecondary">{post.tags.map((tag) => (`#${tag}`))}</Typography>
+                    <Typography className="tgs" variant="body2" color="textSecondary">{post.tags.map((tag) => (`#${tag}`))}</Typography>
                 </div>
                 <Typography className={classes.title} variant="h6" gutterBottom>{post.title}</Typography>
                 <CardContent>
-                <Typography gutterBottom variant="body1" component="p">{post.content.length>100?(`${post.content.substring(0,95)}...`):(post.content)}</Typography>
+                <Typography gutterBottom variant="body1" className="hlf-content" component="p">{post.content.length>100?(`${post.content.substring(0,95)}...`):(post.content)}</Typography>
                     {/* <Typography variant="h6" gutterBottom>{post.content.length>40?(`${post.content.substring(0,37)}...`):(post.content)}</Typography> */}
                     
-                    <div><i class="fa-solid fa-location-dot"></i>&nbsp; Location : {post.district} , {post.location}</div>
-                    <Typography gutterBottom variant="body1" component="p">Supported By : {likes?.length}</Typography>
+                    <div className="lcatn"><i class="fa-solid fa-location-dot"></i>&nbsp;<i>  {post.district} , {post.location}</i></div>
+                    <Typography gutterBottom variant="body1" className="skpt" component="p">Supported By&nbsp; 
+                    <div className="support">{likes?.length}</div></Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
                 <Button className={classes.viewbutton} size="small" variant="contained" onClick={openPost}>

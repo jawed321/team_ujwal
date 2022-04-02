@@ -6,6 +6,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import CommentSection from './CommentSection';
 import { getPost, getPostsBySearch } from '../../actions/posts';
 import useStyles from './styles';
+import './post.css';
 
 function PostDetails() {
     const { post, posts, isLoading,currentPage } = useSelector((state) => state.posts);
@@ -38,7 +39,7 @@ function PostDetails() {
                     <img className={classes.media} src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={post.title} />
                 </div>
                 <div className={classes.section}>
-                    <Typography variant="h5" component="h2">{post.title}</Typography>
+                    <Typography variant="h5" className="ptitle" component="h2">{post.title}</Typography>
                     <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
                     <Typography gutterBottom variant="body1" component="p">{post.content}</Typography>
                     <Typography variant="h6">District : {post.district}</Typography>

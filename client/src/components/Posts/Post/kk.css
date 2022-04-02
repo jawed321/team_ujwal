@@ -1,3 +1,31 @@
 .gg{
     color: pink;
 }
+.tgs{
+    color: rgb(92, 172, 229);
+}
+.support{
+    display: inline-block;
+    border-radius: 10%;
+    background-color: #2196F3;
+    padding: 4px;
+    color: white;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+}
+.skpt{
+    font-weight: 700;
+}
+.hlf-content{
+    margin-top: -10px;
+    color: #809AB4;
+}
+.lcatn{
+    color: black;
+    /* font-weight: 600; */
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
