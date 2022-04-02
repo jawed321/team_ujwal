@@ -78,7 +78,7 @@ function Post({ post}) {
 
     return (
         
-        <Card className={classes.card} raised elevation={6}>
+        <Card className={classes.card} raised elevation={4}>
 
             <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
                 <div className={classes.overlay}>
@@ -97,13 +97,15 @@ function Post({ post}) {
                 <CardContent>
                 <Typography gutterBottom variant="body1" component="p">{post.content.length>100?(`${post.content.substring(0,95)}...`):(post.content)}</Typography>
                     {/* <Typography variant="h6" gutterBottom>{post.content.length>40?(`${post.content.substring(0,37)}...`):(post.content)}</Typography> */}
-                    <Typography gutterBottom variant="body1" component="p">View Project on : <a target="_blank" href={post?.github}><GitHubIcon/></a>&nbsp;
+                    
+                    <div><i class="fa-solid fa-location-dot"></i>&nbsp; Location</div>
+                    <Typography gutterBottom variant="body1" component="p">Supported By : <a target="_blank" href={post?.github}><GitHubIcon/></a>&nbsp;
                     <a target="_blank" href={post?.website}><LanguageIcon/></a>
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
                 <Button className={classes.viewbutton} size="small" variant="contained" onClick={openPost}>
-                    view post
+                    view Issues
                 </Button>
                 </CardActions>
             <CardActions className={classes.cardActions}>

@@ -71,7 +71,7 @@ function Home() {
                             <Typography>Search Results</Typography>
                         ) : (
                         <div className={classes.prepost}>
-                        <Typography variant="h5" style={{margin:'10px 0 10px 0'}}>Feed</Typography>
+                        <Typography variant="h5" style={{margin:'10px 0 10px 0'}}>Issues</Typography>
                         {user?.result?.name ?(<Button onClick={postreffunc} variant="contained" color="primary">Post something?</Button>):
                         (<Button variant="contained" disabled>Signin to post</Button>)}
                         </div>

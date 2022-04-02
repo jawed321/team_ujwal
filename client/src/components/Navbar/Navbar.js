@@ -157,6 +157,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Logo from '../assets/matpar.png'
+import './Navbar.css'
 const Navbar = props => {
   const { history } = props;
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -254,9 +256,10 @@ const Navbar = props => {
   return (
     <AppBar className={classes.appBar} position="fixed" color="inherit">
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          Project Prism
-        </Typography>
+        <img src={Logo} alt="" width="44px" height="44px"/>
+        <h2 className="title1">&nbsp;
+          SANCHAR
+        </h2>
         {isMobile ? (
           <div className={classes.mobprofile}>
             {user?.result && (
