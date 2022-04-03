@@ -71,7 +71,7 @@ const Navbar = props => {
     },
     {
       menuTitle: "chat room",
-      pageURL: "https://sanchar-chat.herokuapp.com/"
+      pageURL: "/https://sanchar-chat.herokuapp.com/"
     },
   ];
   const menuItems2 = [

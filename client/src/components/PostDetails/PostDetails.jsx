@@ -10,7 +10,7 @@ import './post.css';
 
 function PostDetails() {
     const { post, posts, isLoading,currentPage } = useSelector((state) => state.posts);
-    console.log(currentPage);
+    const user=JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
@@ -41,7 +41,9 @@ function PostDetails() {
                 <div className={classes.section}>
                     <Typography variant="h5" className="ptitle" component="h2">{post.title}</Typography>
                     <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-                    <button className="join">Join Chat</button>
+                    <Button style={{ marginTop: '10px' }} disabled={!user} color="primary" variant="contained">
+                            <a target='_blank' href={`https://sanchar-chat.herokuapp.com/chat.html?username=${user?.result?.name}&room=${post.tags[0]}`}>Join chat</a>
+                    </Button>
                     <Typography gutterBottom variant="body1" className="postcn" component="p">{post.content}</Typography>
                     <Typography variant="h6">District : {post.district}</Typography>
                     <Typography variant="h6">Location : {post.location}</Typography>
