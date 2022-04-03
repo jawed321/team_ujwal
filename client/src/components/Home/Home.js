@@ -61,15 +61,15 @@ function Home() {
     }, [dispatch])
 
     return (
-        <Grow in>
-            <Container maxWidth='xl'>
+        <Grow in >
+            <Container className={classes.kj} maxWidth='xl'>
                 <Grid className={classes.gridContainer} container justify="space-between" alignItems="stretch" spacing={3}>
                     <Grid item xs={12} sm={6} md={9}>
                         {(searchQuery || tags.length) ? (
                             <Typography>Search Results</Typography>
                         ) : (
                         <div className={classes.prepost}>
-                        <Typography variant="h5" style={{margin:'10px 0 10px 0'}}>Issues</Typography>
+                        <Typography variant="h5" style={{margin:'10px 0 10px 0' }}></Typography>
                         {user?.result?.name ?(<Button onClick={postreffunc} variant="contained" color="primary">Raise A Issue?</Button>):
                         (<Button variant="contained" disabled>Signin to post</Button>)}
                         </div>

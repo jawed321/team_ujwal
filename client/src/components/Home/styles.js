@@ -14,6 +14,10 @@ export default makeStyles((theme) => ({
     display: 'flex',
     padding: '16px',
   },
+  kj:{
+    paddingTop: '1.5rem;'
+
+  },
   appBarSearch1: {
     display:'none',
     borderRadius: 4,
