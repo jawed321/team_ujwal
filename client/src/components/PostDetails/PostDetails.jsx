@@ -41,10 +41,10 @@ function PostDetails() {
                 <div className={classes.section}>
                     <Typography variant="h5" className="ptitle" component="h2">{post.title}</Typography>
                     <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-                    <Button style={{ marginTop: '10px' }} disabled={!user} color="primary" variant="contained">
-                            <a target='_blank' href={`https://sanchar-chat.herokuapp.com/chat.html?username=${user?.result?.name}&room=${post.tags[0]}`}>Join chat</a>
-                    </Button>
                     <Typography gutterBottom variant="body1" className="postcn" component="p">{post.content}</Typography>
+                    <Button target='_blank' href={`https://sanchar-chat.herokuapp.com/chat.html?username=${user?.result?.name}&room=${post.tags[0]}`} style={{ marginTop: '10px' }} disabled={!user} color="primary" variant="contained">
+                        Join Chat
+                    </Button>
                     <Typography variant="h6">District : {post.district}</Typography>
                     <Typography variant="h6">Location : {post.location}</Typography>
                     <Typography variant="h6">Posted by: {post.name}</Typography>

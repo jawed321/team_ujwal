@@ -19,7 +19,7 @@ function Auth() {
     const history = useHistory();
     const classes = useStyles();
     const state = null;
-    const initialUserData = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '',selectedFile:'' }
+    const initialUserData = { firstName: '', lastName: '',aadhar:'',email: '', password: '', confirmPassword: '',selectedFile:'' }
     const [UserData, setUserData] = useState(initialUserData);
     const [isSignup, setisSignup] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -56,53 +56,6 @@ function Auth() {
         setShowPassword(!showPassword);
     }
     return (
-    //     <div>
-    //     <h1>SignUp to SANCHAAR!</h1>
-    //     <form onSubmit={handleSubmit}>
-    //       <div className='formpartouter'>
-    //       {isSignup && (
-    //           <>
-    //           <div className='formpart'>
-    //           <label>First Name</label>
-    //           <input type="text" name="firstName" onChange={handleChange}/>
-    //         </div>
-    //         <div className='formpart'>
-    //           <label>Last Name</label>
-    //           <input type="text" name="lastName" onChange={handleChange}/>
-    //         </div>
-    //         </>
-    //     )}
-    //         <div className='formpart'>  
-    //           <label>Email</label>
-    //           <input type="email" name="email" onChange={handleChange}/>
-    //         </div>
-    //         <div className='formpart'>
-    //           <label>Password</label>
-    //           <input type="password" name="password" onChange={handleChange}/>
-    //         </div>
-    //         {isSignup && (
-    //             <>
-    //             <div className='formpart'>
-    //           <label>Confirm Password</label>
-    //           <input type="password" name="confirmPassword" onChange={handleChange}/>
-    //            </div>
-    //             </>
-    //         )}
-    //         {isSignup && 
-    //                             <FileBase
-    //                                 type="file"
-    //                                 multiple={false}
-    //                                 onDone={({ base64 }) => setUserData({ ...UserData, selectedFile: base64 })}
-    //         />}
-    //         <div className='formpart'>
-    //         <button type="submit" value="submit">{isSignup ? 'Sign Up' : 'Sign In'}</button>
-    //         </div>
-    //       </div>
-    //     <Button onClick={switchMode}>
-    //     {isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up"}
-    //     </Button>
-    //     </form>
-    //   </div>
     <div className="login">
 
     
@@ -121,6 +74,7 @@ function Auth() {
                             <>
                                 <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half />
                                 <Input name="lastName" label="Last Name" handleChange={handleChange} half />
+                                <Input name="aadhar" label="Aadhar Card No." handleChange={handleChange} />
                             </>
                         )}
                         <Input name="email" label="Email Address" handleChange={handleChange} type="email" />
@@ -158,5 +112,4 @@ function Auth() {
         </div>
     )
 }
-
 export default Auth
