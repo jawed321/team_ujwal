@@ -41,7 +41,8 @@ function PostDetails() {
                 <div className={classes.section}>
                     <Typography variant="h5" className="ptitle" component="h2">{post.title}</Typography>
                     <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-                    <Typography gutterBottom variant="body1" component="p">{post.content}</Typography>
+                    <button className="join">Join Chat</button>
+                    <Typography gutterBottom variant="body1" className="postcn" component="p">{post.content}</Typography>
                     <Typography variant="h6">District : {post.district}</Typography>
                     <Typography variant="h6">Location : {post.location}</Typography>
                     <Typography variant="h6">Posted by: {post.name}</Typography>
@@ -51,6 +52,7 @@ function PostDetails() {
                     <Divider style={{ margin: '20px 0' }} />
                 </div>
             </div> 
+
         </Paper>
     )
 }
