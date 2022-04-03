@@ -96,7 +96,7 @@ function Post({post}) {
                     </div>
                 )}
                 <div className={classes.details}>
-                    <Typography className="tgs" variant="body2" color="textSecondary">{post.tags.map((tag) => (`#${tag}`))}</Typography>
+                    <Typography className="tgs" variant="body2">{post.tags.map((tag) => (`#${tag}`))}</Typography>
                 </div>
                 <Typography className={classes.title} variant="h6" gutterBottom>{post.title}</Typography>
                 <CardContent>
