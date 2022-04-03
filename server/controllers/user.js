@@ -8,7 +8,7 @@ export const signin=async (req,res)=>{
     try {
         const existingUser=await User.findOne({email});
         if(!existingUser){
-            res.status(404).json({message:"email doesnt exist"})
+            res.status(404).json({message:"email doesnt exist"});
         }else{
             const isPasswordCorrect=await bcrypt.compare(password,existingUser.password);
             if(!isPasswordCorrect){
@@ -23,14 +23,18 @@ export const signin=async (req,res)=>{
     }
 }
 export const signup=async (req,res)=>{
-    const {firstName,lastName,email,password,confirmPassword,selectedFile}=req.body;
+    const {firstName,lastName,aadhar,email,password,confirmPassword,selectedFile}=req.body;
     try {
         const existingUser=await User.findOne({email});
+        const existingaadhar=await User.findOne({aadhar});
+        if(existingaadhar){
+            res.status(400).json({message:"card no. already exist"});  
+        }
         //console.log(existingUser._id.toString());
         if(existingUser!==null) return res.status(400).json({message:"email already exist"});
         if(password!==confirmPassword) return res.status(400).json({message:"Password doesnt match"});
         const hashedPassword=await bcrypt.hash(password, 12);
-        const result= await User.create({name:`${firstName} ${lastName}`,email,password:hashedPassword,selectedFile})
+        const result= await User.create({name:`${firstName} ${lastName}`,aadhar,email,password:hashedPassword,selectedFile})
         const token =jwt.sign({email: result.email, id:result._id},'test', { expiresIn: "1h"})
         res.status(200).json({result, token});
     } catch (error) {
