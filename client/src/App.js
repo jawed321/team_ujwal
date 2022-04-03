@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import EditPassword from './components/EditPassword/EditPassword';
 import Form from './components/Form/Form'
 import Form1 from './components/Form1/Form1'
+import Teampage from './components/Teampage';
 
 function App() {
     const user = JSON.parse(localStorage.getItem('profile'));
@@ -26,6 +27,7 @@ function App() {
                     <Navbar logo={logo} />
                     <Switch>
                         <Route path="/" exact component={() => <Redirect to="/posts" />} />
+                        <Route path="/team" exact component={Teampage} />
                         <Route path="/posts" exact component={Home} />
                         <Route path="/posts/newpost" exact component={Form} />
                         <Route path="/posts/editpost/:id" exact component={Form1} />

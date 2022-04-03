@@ -24,7 +24,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-function Post({ post}) {
+function Post({post}) {
+    var val=false;
+    if(window.location.href=='http://localhost:3000/team'){
+        val=true;
+    }
     console.log(post);
     const [open1, setOpen1] = useState(false);
     const [target,setTaget]=useState('');
@@ -52,11 +56,22 @@ function Post({ post}) {
     const hasLiked=post?.likes?.find((like) => like === userId)
     const handleLike=async ()=>{
         dispatch(likePost(post._id))
+        if(hasLiked){
+            setLikes(post?.likes.filter((id)=>id!==userId));
+        }else{
             setLikes([...post?.likes,userId]);
+        }
     }
     const Likes = () => {
         //console.log(likes)
-        
+        if (likes.length > 0) {
+            return likes?.find(like => like === userId)
+                ? (
+                    <><ThumbUpAltIcon fontSize="small" />UnSupport</>
+                ) : (
+                    <><ThumbUpAltOutlined fontSize="small" />Support</>
+                );
+        }
 
         return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Support</>;
     };
@@ -93,8 +108,9 @@ function Post({ post}) {
                     <div className="support">{likes?.length}</div></Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
+                
                 <Button className={classes.viewbutton} size="small" variant="contained" onClick={openPost}>
-                    view Issues
+                    {val? 'Join team' : 'View Issue'}
                 </Button>
                 </CardActions>
             <CardActions className={classes.cardActions}>

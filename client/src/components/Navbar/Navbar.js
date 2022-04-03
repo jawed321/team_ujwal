@@ -1,141 +1,3 @@
-// import React, { useState, useEffect } from 'react'
-// import { AppBar, Avatar, Toolbar, Typography, Button } from '@material-ui/core';
-// import useStyles from './styles';
-// import { useDispatch } from 'react-redux';
-// import { useHistory, useLocation, Link } from 'react-router-dom';
-// import decode from 'jwt-decode';
-// //import Button from '@mui/material/Button';
-// import Menu from '@mui/material/Menu';
-// import MenuItem from '@mui/material/MenuItem';
-// import {toast} from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css'
-// //import { getUserdetail } from '../../actions/users';
-// import { confirmAlert } from 'react-confirm-alert'; // Import
-// import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
-// function Navbar({ logo }) {
-//   const [anchorEl, setAnchorEl] = useState(null);
-//   const open = Boolean(anchorEl);
-//   const handleClick = (event) => {
-//     setAnchorEl(event.currentTarget);
-//   };
-//   const handleClose = () => {
-//     setAnchorEl(null);
-//   };
-//   const dispatch = useDispatch();
-//   const history = useHistory();
-//   const location = useLocation();
-//   const classes = useStyles();
-//   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-//   console.log(user);
-
-//   useEffect(() => {
-//     const token = user?.token;
-//     setUser(JSON.parse(localStorage.getItem('profile')));
-//   }, [location, user?.token, dispatch]);
-//   useEffect(() => {
-//     const token = user?.token;
-
-//     if (token) {
-//       const decodedToken = decode(token);
-
-//       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
-//     }
-//     setUser(JSON.parse(localStorage.getItem('profile')));
-//   }, [location, dispatch]);
-
-//   const logout = () => {
-//     dispatch({ type: 'LOGOUT' });
-//     history.go(0);
-//     setUser(null);
-//     toast.success('Logged Out Successfully',{
-//       position:'top-center',
-//       autoClose:5000,
-//       draggable:true
-//      })
-//   }
-//   const logout1 = () => {
-//     confirmAlert({
-//       title: 'Confirm to Logout',
-//       message: 'Are you sure to logout?',
-//       buttons: [
-//         {
-//           label: 'Yes',
-//           onClick: () => {    
-//             dispatch({ type: 'LOGOUT' });
-//             history.go(0);
-//             setUser(null);
-//             toast.success('Logged Out Successfully',{
-//               position:'top-center',
-//               autoClose:5000,
-//               draggable:true
-//              })
-
-//           }
-//         },
-//         {
-//           label: 'No',
-//           //onClick: () => {}
-//         }
-//       ]
-//     });
-//   }
-
-//   return (
-//     <>
-//       <AppBar className={classes.appBar} position="static" color="inherit">
-//         <div className={classes.brandContainer}>
-//           <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">Project Store</Typography>
-//           <img className={classes.image} src={logo} alt="projectstore" height="60" />
-//         </div>
-//         <Button component={Link} to="/posts/favourites">View favs</Button>
-//         <Button component={Link} to="/posts/myposts">My posts</Button>
-//         <Toolbar className={classes.toolbar}>
-//           {(user?.result) && (
-//             <div className={classes.profile}>
-//               <Button
-//                 id="basic-button"
-//                 aria-controls="basic-menu"
-//                 aria-haspopup="true"
-//                 aria-expanded={open ? 'true' : undefined}
-//                 onClick={handleClick}
-//               >
-//               <Avatar className={classes.purple} alt={user?.result.name} src={user?.result?.selectedFile}>{user?.result.name.charAt(0)}</Avatar>
-//               <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography>
-//               </Button>
-//               <Menu
-//               id="basic-menu"
-//               anchorEl={anchorEl}
-//               open={open}
-//               onClose={handleClose}
-//               MenuListProps={{
-//               'aria-labelledby': 'basic-button',
-//             }}
-//               >
-//               <MenuItem onClick={handleClose}>View Profile</MenuItem>
-//               <MenuItem onClick={handleClose} component={Link} to="/editprofile">Edit Profile</MenuItem>
-//               <MenuItem onClick={handleClose} component={Link} to="/changepassword">Change Password</MenuItem>
-//               </Menu>
-//             </div>
-//           )}
-//           {user?.result ? (
-//             <div className={classes.profile}>
-//               {/* <Avatar className={classes.purple} alt={user?.result.name} src={user?.result?.selectedFile}>{user?.result.name.charAt(0)}</Avatar>
-//               <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography> */}
-//               <Button variant="contained" className={classes.logout} color="secondary" onClick={logout1}>Logout</Button>
-//             </div>
-//           ) : (
-//             <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
-//           )}
-//         </Toolbar>
-//       </AppBar>
-//     </>
-//   )
-// }
-
-// export default Navbar
-
-
 import React, { useState, useEffect } from "react";
 import { useTheme } from "@material-ui/core/styles";
 import { AppBar, Avatar, Toolbar, Typography } from '@material-ui/core';
@@ -200,12 +62,16 @@ const Navbar = props => {
 
   const menuItems = [
     {
-      menuTitle: "Home",
+      menuTitle: "Issues",
       pageURL: "/"
     },
     {
+      menuTitle: "Team",
+      pageURL: "/team"
+    },
+    {
       menuTitle: "chat room",
-      pageURL: "/posts/myposts"
+      pageURL: "https://sanchar-chat.herokuapp.com/"
     },
   ];
   const menuItems2 = [
@@ -383,10 +249,16 @@ const Navbar = props => {
               <Button
                 className={classes.headerButtons}
                 variant="contained"
+                component={NavLink}
+                exact to="/team"
+              >
+                Team
+              </Button>
+              <Button
+                className={classes.headerButtons}
+                variant="contained"
                > 
                 <a style={{textDecoration:"none",color:"rgba(0,0,0,0.87)"}} href="https://sanchar-chat.herokuapp.com/" target="_blank">chatroom</a>
-              
-                chatroom
               </Button>
             </div>
             {user?.result ? (

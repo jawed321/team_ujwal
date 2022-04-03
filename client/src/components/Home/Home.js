@@ -34,8 +34,6 @@ function Home() {
             //search post
         }
     }
-    const handleAdd = (tag) => setTags([...tags, tag])
-    const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete))
     const searchPost = () => {
         if (search.trim() || tags) {
             dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
@@ -76,19 +74,6 @@ function Home() {
                         (<Button variant="contained" disabled>Signin to post</Button>)}
                         </div>
                         )}
-                        {/* <AppBar className={classes.appBarSearch1} position="static" color="inherit">
-                            <TextField onKeyPress={handleKeyPress} name="search" variant="outlined" label="Search Projects" fullWidth value={search}
-                                onChange={(e) => setSearch(e.target.value)} />
-                            <ChipInput
-                                style={{ margin: '10px 0' }}
-                                value={tags}
-                                onAdd={(chip) => handleAdd(chip)}
-                                onDelete={(chip) => handleDelete(chip)}
-                                label="Search Tags"
-                                variant="outlined"
-                            />
-                            <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
-                        </AppBar> */}
                         <Posts num={0} setCurrentId={currentId} />
                         
                         {(!searchQuery && !tags.length) && (
@@ -109,7 +94,7 @@ function Home() {
                             <Button component={Link} to='/posts' >Back to feed</Button>
                         )} */}
 
-                        
+
 
                     </Grid>
                 </Grid>

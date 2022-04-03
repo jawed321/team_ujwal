@@ -3,7 +3,7 @@ import Post from './Post/Post'
 import useStyles from './styles'
 import { Grid, LinearProgress } from '@material-ui/core'
 import { useSelector } from 'react-redux';
-const Posts = ({ setCurrentId, num }) => {
+const Posts = ({ setCurrentId, num}) => {
     const { posts, isLoading } = useSelector((state) => state.posts);
     const classes = useStyles();
     console.log(posts);
